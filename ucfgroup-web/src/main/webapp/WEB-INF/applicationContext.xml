@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx 
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:annotation-config/>
+	
+    <bean id="dataSource" class="org.h2.jdbcx.JdbcDataSource" destroy-method="close">
+    	<property name="driverClassName" value="org.h2.Driver"/>
+    	<property name="url" value="jdbc:derby:okstack;create=true"/>
+    	<property name="username" value="okstack"/>
+    	<property name="password" value="okstack"/>
+    </bean>
+    
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+    	<property name="dataSource" ref="dataSource"/>
+    </bean>
+    
+    <bean id="baseDao" abstract="true">
+    	<property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
+    
+    <bean id="docDao" class="com.okstack.dao.impl.DocDaoImpl" parent="baseDao"/>
+    
+    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    	<property name="dataSource" ref="dataSource"/>
+    </bean>
+    
+    <tx:annotation-driven transaction-manager="txManager" />
+</beans>

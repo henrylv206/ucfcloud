@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/decorators">
+	<!-- common -->
+	<decorator name="common" page="main.jsp">		
+        <pattern>/*</pattern>
+        
+        <!-- <excludes> 
+			<pattern>/index.jsp</pattern> 
+			<pattern>/coos/*.*</pattern> 
+			<pattern>/scripts/*.*</pattern> 
+		</excludes>  -->
+    </decorator>
+    
+    <!-- <decorator name="basic-theme" page="main.jsp">		
+        <pattern>/*</pattern>
+        
+        <excludes> 
+			<pattern>/index.jsp</pattern> 
+			<pattern>/coos/*.*</pattern> 
+			<pattern>/scripts/*.*</pattern> 
+		</excludes> 
+    </decorator> -->
+</decorators>
