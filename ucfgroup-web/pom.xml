@@ -32,17 +32,33 @@
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-	        <groupId>org.springframework</groupId>
-	        <artifactId>spring-context</artifactId>
-	        <version>4.0.5.RELEASE</version>
-	        <!-- <version>3.2.9.RELEASE</version> -->
-	    </dependency>
-	    <dependency>
-	        <groupId>org.springframework</groupId>
-	        <artifactId>spring-webmvc</artifactId>
-	        <version>4.0.5.RELEASE</version>
-	        <!-- <version>3.2.9.RELEASE</version> -->
-	    </dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+		  <groupId>org.springframework</groupId>
+	      <artifactId>spring-webmvc</artifactId>
+		  <version>4.0.0.RELEASE</version>
+		  <exclusions>
+		  	<!-- 运行时发现，可能会有问题。以slf4j代替。 -->
+		  	<exclusion>
+		  		<groupId>commons-logging</groupId>
+		  		<artifactId>commons-logging</artifactId>
+		  	</exclusion>
+		  </exclusions>
+		</dependency>
+		<dependency>
+		  <groupId>org.springframework</groupId>
+	      <artifactId>spring-jdbc</artifactId>
+		  <version>4.0.0.RELEASE</version>
+		</dependency> 
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>4.0.0.RELEASE</version>
+			<scope>compile</scope>
+		</dependency>
 	    <dependency>
 	        <groupId>org.hibernate</groupId>
 	        <artifactId>hibernate-core</artifactId>
@@ -69,7 +85,20 @@
 			<version>1.7.6</version>
 		</dependency>
 		<!-- log end -->
-		
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.6</version>
+			<type>jar</type>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>0.9.1.2</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>ucfgroup-web</finalName>
