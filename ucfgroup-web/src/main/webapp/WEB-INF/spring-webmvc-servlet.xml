@@ -14,12 +14,16 @@
 
 	<mvc:annotation-driven/>
 	
+	<mvc:default-servlet-handler/>
+	
+	<!-- <mvc:resources mapping="/css/**" location="css" /> -->
+	
 	<context:annotation-config/>
 
     <context:component-scan base-package="com.ucfgroup.ucfcloud.controller"/>
 
 	<!-- comprise url which used for view -->
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	    <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
 	    <!-- <property name="prefix" value="/"/> -->
 	    <property name="suffix" value=".jsp"/>
